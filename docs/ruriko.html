@@ -31,13 +31,212 @@
       </aside>
       <article class="doc__content">
         <section class="js-section">
-          <h3 class="section__title">Developing 👷‍♂️</h3>
-          <p>Our team is working hard to have the RurikoBot documentation as soon as possible, please be patient.</p>
-          <div style="text-align: center;">
-            <img src="/assets/img/work.jpg" alt="Developers at work" width="300">
+          <h3 class="section__title">Get Started</h3>
+          <p>Welcome to the official documentation of <b>`RurikoBot`</b><br>
+             if you don't know what it is <b>`RurikoBot`</b> is a bot made for the whatsApp messaging platform. <br>
+              the bot was primarily designed to make your group more interactive with its functions.</p>
+          <h3 class="section__title">Dependencies</h3>
+          <div>
+            <ul>
+              <li data-link="https://nodejs.org/">Node.js</li>
+              <li data-link="https://git-scm.com/">Git</li>
+              <li data-link="https://ffmpeg.org/">FFmpeg</li>
+              <li data-link="https://tesseract-ocr.github.io/">Tesseract</li>
+            </ul>
           </div>
+          <p>You must have all the dependencies downloaded to avoid any failure at the moment of starting the bot and to avoid any error or bad experience with the code of <b>`RurikoBot`</b> <br><br>
+            <b>Warning ⚠</b> <br><br>
+            This step should not be omitted in any way because the bot requires these dependencies to start the Virtual Host.</p>
+
+          <h3 class="section__title">Installation</h3>
+          <p>This part is the most important part to download the bot so please do not skip this part for any reason.</p>
+
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                > git clone https://github.com/Sstudios-Dev/Ruriko-Bot.git
+                > cd Ruriko-Bot
+              </code>
+            </pre>
+            <p>That is why it is important to have all the dependencies because at the time of installation we need <b>git</b> and <b>node.js</b> it is also important to have a code editor, there are many, but the most recommended at present is <a href="https://code.visualstudio.com/"><strong>Visual Studio Code</strong></a>.</p>
+          </div>
+
+          <h3 class="section__title">Configuration</h3>
+          <p>In this part after cloning the project in your pc and already having it in visual Studio code
+             look for the file called <b>config.example.json</b> and rename it to <b>config.json</b>.</p>
+
+             <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  {
+                    "ownerBot": "505xxxxxxxx@c.us",
+                    "prefix": "!",
+                    "nao": "SauceNAO-key",
+                    "openAiKey": "OpenAI-key",
+                    "authorStick": "@SstudiosDev",
+                    "packStick": "rurikoBot",
+                    "language": "Coming soon"
+                }
+                </code>
+              </pre>
+              <p><b>ownerBot:</b> in the owner bot option you have to put your phone number with the prefix of your country for example <b>505</b> and your number pasted and without removing @c.us <br><br>
+              <b>Prefix:</b> in the prefix option you have to put a root word for the bot to answer the commands this is totally configurable as you can put anything the default prefix that comes with the bot is <b>!</b> <br><br>
+            <b>nao:</b> for the anime commands to work you need an Api Key that you can get by creating an account in <b>https://saucenao.com/</b> and after that you go to the menu where it says api and there you will find an option called api key and click on copy. <br><br>
+          <b>openAiKey:</b> for the Ai functions you need an openAi/ChatGpt Api Key to get a key you need to have an account on the <b>https://platform.openai.com/docs/overview</b> platform and after creating an account or logging in you look in the menu for an option called Api Keys and click there and you will get a button called <b></b>Create new secret key</b>. <br><br> 
+          <b>Warning ⚠</b> The openAi and nao keys should not be shared for any reason the api keys should only be held by the owners of the bot. <br><br> 
+        <b>authorStick:</b> Shows the author of the emoji when creating it with the bot an example is: <br><br><b>testDOC • @SstudiosDev</b> <br><br>
+        <b>packStick:</b> Displays the bot name when generating a stiker with the command <b>${prefix}stiker</b> an example is: <br><br><b>Bot name • @SstudiosDev</b> <br><br>
+      <b>language:</b> Our team is working hard to make this option available as soon as possible. 👷‍♂️</p>
+
+      <h3 class="section__title">Language modification</h3>
+      <p>At the moment only English and Spanish are available but soon more languages will be available to put the bot in Spanish just replace everything that is <b>eng</b> in </b> <b>es</b> check well what you are changing because there are several things that makes eng the most advisable is to use English for now.</p>
+      
+      <button id="abrirModal" class="boton-img">open image</button>
+
+      <div id="modal" class="modal">
+        <span class="cerrar" id="cerrarModal">&times;</span>
+        <img src="https://i.postimg.cc/W3w059bB/eng-es.png" class="imagen-modal" alt="Imagen">
+      </div>
+
+      <h3 class="section__title">FFmpeg Installation</h3>
+      <p>To do the FFmpeg installation follow the following steps correctly without skipping any parts</p>
+
+      <div>
+        <ul>
+          <li data-link="https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz">Click here to download one of the available FFmpeg versions.</li>
+          <li data-link="https://answers.microsoft.com/en-us/windows/forum/all/cusers-directory/8340194f-b254-4116-a98a-e37a8ad550e3">Extract the downloaded file to the <b>C:\</b> directory</li>
+          <li data-link="https://www.wikihow.com/Install-FFmpeg-on-Windows">Rename the extracted folder to <b>ffmpeg</b></li>
+          <li data-link="https://video.stackexchange.com/questions/20495/how-do-i-set-up-and-use-ffmpeg-in-windows">Open Command Prompt with Administrator privileges.</li>
+          <li data-link="">Execute the following command:</li>
+        </ul>
+      </div>
+      <div class="code__block code__block--notabs">
+        <pre class="code code--block">
+          <code>
+            > setx /m PATH "C:\ffmpeg\bin;%PATH%"
+          </code>
+        </pre>
+        <p>if you did all the steps correctly you will get a message saying the following: <br><br>
+          <b>SUCCESS: specified value was saved</b><br><br>
+          To make sure FFmpeg is installed correctly, check its version by running the following command:</p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                > tesseract -version"
+              </code>
+            </pre>   
+      </div>
+       <h3 class="section__title">Installation of other dependencies</h3>
+       <p>to install the other dependencies for the bot to work and connect to whatsApp we need to have <b>node.js</b>
+        installed and execute the following command in the console of our code editor or the CMD console</p>
+
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
+            <code>
+              > npm install
+            </code>
+          </pre>
+          <p>and ready there the dependencies that you find in the npm plant will be installed
+             and you have to check if no dependency gives you an error in the <b>console</b>.</p>
+        </div>
+
+      <h3 class="section__title">Start the bot</h3>
+      <p>after following all the steps correctly and configuring the bot correctly comes the part of starting the bot there are two ways to do this <br><br>
+        <b>For regular node execution:</b></p>
+
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
+            <code>
+              > npm start
+            </code>
+          </pre>
+          <p><b>Second option PM2:</b></p>
+        </div>
+        <div class="code__block code__block--notabs">
+          <pre class="code code--block">
+            <code>
+              > pm2 start index.js -i max
+              > pm2 monit
+            </code>
+          </pre>
+          <p>after starting the bot you will be asked to scan a <b>QR</b> 
+            code that you will have to use another whatsapp <b>number</b> for the bot.</p>
+        </div>
+
+        <h3 class="section__title">Features / Categories</h3>
+        <p>In this section of the documentation, you will find all the categories of commands that <b>RurikoBot</b> offers. From basic functions to advanced options, this guide will show you all the 
+          capabilities and possibilities that <b>RurikoBot</b> has for your projects and activities.</p>
+        <table id="customers">
+          <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>+18</th>
+          </tr>
+          <tr>
+            <td>Downloader</td>
+            <td>In this category you can download videos from some social networks and you don't need permissions.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Bot</td>
+            <td>In this category you can see the information of the bot in some commands you need permissions and others you do not.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Misc</td>
+            <td>In this category there are several commands with not so good utilities but they are varied and you don't need permissions.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Sticker</td>
+            <td>in this category you can create image and gift stickers and short videos and you do not need permissions to use the commands.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Anime</td>
+            <td>in this category you can see all the commands that have to do with anime and role play and you don't need permissions to use the commands.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Fun</td>
+            <td>in this category you can see all the fun commands and you don't need to have permissions to use the commands.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Moderation</td>
+            <td>here you can find all the commands to administrate your group correctly and if you need permissions to use these commands you need to be admin of the group</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Owner</td>
+            <td>as the name says here will be all the commands that can be used by the bot owner/hosting and if you need to be the bot owner/hosting to use all the commands </td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Leveling</td>
+            <td>This is the leveling system where one can gain roles in the bot as you level up and if you need permissions to use the commands</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>AI</td>
+            <td>in this category you can use the ia commands that use chatGpt 3 and that is why you need the openAi key api to use these commands you don't need permissions.</td>
+            <td>false</td>
+          </tr>
+          <tr>
+            <td>Nsfw</td>
+            <td>in this category you can find +18 commands for some commands you need to be admin of the group and for others you don't.</td>
+            <td>true</td>
+          </tr>
+        </table>
+        <p>these are all the categories for the moment</p>
+        <hr />
+
+        <div align="right">
           <p><a href="https://github.com/Sstudios-Dev"><strong>Power by SstudiosDev </strong></a>❤</p>
-        </section>        
+       </div>
+
+      </div>
+      </section>
     </div>
 
     <footer class="footer">Documentation by sstudiosDev &copy; Copyright <strong>SSTUDIOS</strong>. All Rights Reserved</footer>
