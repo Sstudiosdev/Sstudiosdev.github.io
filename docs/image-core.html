@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Documentation - image-coreJs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/doc2.css">
+    <link rel="stylesheet" href="/assets/css/doc.css">
+    <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">Sstudios <span class="logo__thin">Doc</span></h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="https://github.com/Sstudios-Dev" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="/index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected"><a href="/docs/image-core.html">image-core</a></li>
+          <li class="js-btn"><a href="/docs/doc.html ">Welcome</a></li>
+          <li class="js-btn"><a href="/docs/betterpvp.html">Betterpvp</a></li>
+          <li class="js-btn"><a href="/docs/ruriko.html">RurikoBot</a></li>
+        </ul>
+      </aside>
+      <article class="doc__content">
+        <section class="js-section">
+          <h3 class="section__title">Get Started</h3>
+          <p><b>Image-core</b> Generates a random URL for an image hosted on GitHub, downloads it and saves it in a local directory of your project. 
+            This could be useful, for example, for applications that need images dynamically for testing, demonstration or development purposes.</p>
+            <div style="text-align: center;">
+              <img align=center src="https://raw.githubusercontent.com/Sstudios-Dev/image-core/master/.github/assets/banner.png">
+            </div>
+            <h3 class="section__title">Modules</h3>
+            <div>
+              <ul>
+                <li data-link="https://github.com/Sstudios-Dev/image-core/tree/main/src/img">Random images: 70 images</li>
+                <li data-link="https://github.com/Sstudios-Dev/image-core/tree/main/src/img-anime">Anime images: 200 images</li>
+              </ul>
+              <p>At present, the npm package for image-core only encompasses those two modules and their associated images.
+                 However, it's imperative to note our steadfast commitment to continual development and enhancement of this library. In the future, we aim to significantly expand the range of
+                  modules available to provide more comprehensive functionality tailored to the needs of our users. We deeply appreciate your interest in our project and assure you that we are diligently working to deliver
+                   an even more robust and complete experience in forthcoming updates.</p>
+            </div>
+
+            <h3 class="section__title">Warning</h3>
+            <p>I would like to remind you of the importance of maintaining consistency in the structure of our 
+              project. Specifically, when utilizing the <code>"image core"</code> library, it is crucial that JavaScript files have the
+              <code>".js"</code> extension to ensure their proper functioning.
+              <br>
+              <br>
+              I kindly request that you meticulously verify that all relevant files adhere to this specification and
+              that it is accurately reflected in our <code>"package.json"</code> file.
+            </p>
+
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  {
+                    "type": "commonjs", // you have to add this
+                    "dependencies": {
+                      "imagen-core": "^1.0.8"
+                     }
+                  }
+                </code>
+              </pre>
+              <p>just add above the dependencies <code>"type": "commonjs"</code>
+                 just that, just don't add the message that's in the //</p>
+            </div>
+
+            <h3 class="section__title">How to use it</h3>
+            <p>
+              First you have to have your <code>.js</code> project and <code>node.js</code> installed and in the console of your code editor execute the following command
+              <br>
+              <br>
+              <code>npm i imagen-core</code>
+              <br>
+              <br>
+              after that the dependencies will be installed and then you can use the <code>image-core</code> functions without any problem.
+            </p>
+
+            <h3 class="section__title">downloadRandomImage</h3>
+            <p>
+              Well, what this function does is to download a random image that is uploaded to the repository and creates a directory called <code>./image/</code>
+            </p>
+
+            <h3 class="section__title">Example</h3>
+
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  const { getImageUrlFull } = require('imagen-core');
+                  const axios = require('axios');
+                  const fs = require('fs');
+                  const path = require('path');
+
+                  /**
+                   * Downloads a random anime image from a specified URL.
+                   * It uses getImageUrlFull to get the full image URL,
+                   * then downloads and saves the image to a specified directory.
+                   */
+
+                   async function downloadRandomImage() {
+                    // Call getImageUrlFull to get the full image URL and image name
+                    const { imageUrlFull, imageName } = await getImageUrlFull();
+                    const directory = './test'; // Directory where the image will be saved
+
+                    // Create the directory if it doesn't exist
+                    if (!fs.existsSync(directory)) {
+                      fs.mkdirSync(directory);
+                    }
+
+                    try {
+                      // Use Axios to download the image data as an array buffer
+                      const response = await axios.get(imageUrlFull, { responseType: 'arraybuffer' });
+
+                      // Write the image data to a file in the specified directory
+                      fs.writeFileSync(path.join(directory, imageName), Buffer.from(response.data));
+
+                      // Log a success message
+                      console.log(`image ${imageName} downloaded`);
+                    } catch (error) {
+                      // Log an error message if the download fails
+                      console.error(`Failed to download image ${imageName}: ${error.message}`);
+                    }
+                   }
+
+                   // Run the downloadRandomImage function
+                   downloadRandomImage();
+                </code>
+              </pre>
+            </div>
+
+            <h3 class="section__title">getImageUrlFull</h3>
+            <p>
+              What this function does is to send the direct link of the image this you can server for a <code>whatsapp or discord bot</code> or
+              for some social network that has <code>github support</code>.
+            </p>
+
+            <h3 class="section__title">Example</h3>
+
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  const { getImageUrlFull } = require('imagen-core');
+
+                  /**
+                   * Example function to demonstrate getting the full URL of an image.
+                   * It uses the getImageUrlFull function to retrieve the URL and image name,
+                   * and then logs them to the console.
+                   */
+
+                   async function exampleGetFullImageUrl() {
+                    // Call the getImageUrlFull function to get the URL and image name
+                    const { imageUrlFull, imageName } = await getImageUrlFull();
+
+                    // Log the full image URL and image name to the console
+                    console.log('Full image URL:', imageUrlFull);
+                    console.log('Image name:', imageName);
+                   }
+
+                   // Run the example function
+                   exampleGetFullImageUrl();
+                </code>
+              </pre>
+            </div>
+
+            <h3 class="section__title">downloadRandomAnimeImage</h3>
+            <p>
+              What this function does is to load a random anime image that is in our <code>repository</code>.
+            </p>
+
+            <h3 class="section__title">Example</h3>
+
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  const { downloadRandomAnimeImage } = require('imagen-core');
+
+                  /**
+                   * Downloads a random anime image and logs a success message if successful.
+                   * Logs an error message if there's an error during the download.
+                   */
+                   async function testDownloadRandomAnimeImage() {
+                    try {
+                      await downloadRandomAnimeImage();
+                      console.log('Anime image downloaded successfully');
+                    } catch (error) {
+                      console.error('Error downloading anime image:', error);
+                    }
+                   }
+
+                   // Run the function to test downloading a random anime image
+                   testDownloadRandomAnimeImage();
+                </code>
+              </pre>
+            </div>
+
+            <h3 class="section__title">GetRandomAnimeImageUrl</h3>
+            <p>
+              This function displays the direct link to the generated
+                <code>Anime</code> image and can be used in <code>social networks</code> with <code>github support</code>.
+            </p>
+
+            <div class="code__block code__block--notabs">
+              <pre class="code code--block">
+                <code>
+                  const { getRandomAnimeImageUrl } = require('imagen-core');
+
+                  /**
+                   * Example function to demonstrate getting a random anime image URL.
+                   * It uses the getRandomAnimeImageUrl function to retrieve the URL and image name,
+                   * and then logs them to the console.
+                   */
+
+                   async function exampleGetRandomAnimeImageUrl() {
+                    // Call the getRandomAnimeImageUrl function to get the URL and image name
+                    const { animeImageUrlFull, imageName } = await getRandomAnimeImageUrl();
+
+                    // Log the full anime image URL and image name to the console
+                    console.log('Full anime image URL:', animeImageUrlFull);
+                    console.log('Image name:', imageName);
+                   }
+
+                   // Run the example function
+                   exampleGetRandomAnimeImageUrl();
+                </code>
+              </pre>
+            </div>
+
+            <h3 class="section__title">Contributors</h3>
+            <p>Thank you very much for helping in the project ❤</p>
+
+            <img src="https://contrib.rocks/image?repo=Sstudios-Dev/image-core">
+
+            <h3 class="section__title">License</h3>
+            <p><b>SstudiosDev</b> © <a href="https://github.com/Sstudios-Dev">SstudiosTeam</a> released under the MIT License.
+              Authored and maintained by SstudiosDev.
+              <br>
+              <br>
+              <img src="https://i0.wp.com/opensource.org/wp-content/uploads/2023/03/cropped-OSI-horizontal-large.png?fit=640%2C229&ssl=1">
+            </p>
+
+            <div align="right">
+            <p><a href="https://github.com/Sstudios-Dev"><strong>Power by SstudiosDev </strong></a>❤</p>
+          </div>
+          
+          </section>    
+    </div>
+
+    <footer class="footer">Documentation by sstudiosDev &copy; Copyright <strong>SSTUDIOS</strong>. All Rights Reserved</footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/assets/js/doc.js"></script>
+  </body>
+</html>
