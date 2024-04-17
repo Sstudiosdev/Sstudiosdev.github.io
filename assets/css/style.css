@@ -33,6 +33,21 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  transition: width 0.3s ease;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5faee3;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
