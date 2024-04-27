@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSTUDIOS - Contracts</title>
+    <meta content="List of legal contracts offered by SSTUDIOS." name="description">
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+            border-bottom: 2px solid #fff;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            text-decoration: underline;
+            margin-bottom: 30px;
+        }
+
+        .contract-list {
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .contract-list ul {
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+
+        .contract-list ul li {
+            list-style-type: disc;
+            margin-left: 15px;
+        }
+
+        .contract {
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        .contract h2 {
+            margin-bottom: 10px;
+        }
+
+        .contract p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .contract-list {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SSTUDIOS - Contracts</h1>
+    </header>
+    <nav>
+        <a href="/index.html">Home</a>
+        <a href="/donate.html">Donate</a>
+        <div class="dropdown">
+            <a href="">Contact</a>
+            <div class="dropdown-content">
+                <a href="https://discord.gg/NbMhtfsgr6">Discord</a>
+                <a href="mailto:Sstudiosdev@gmail.com">Mail</a>
+                <a href="https://www.patreon.com/sstudiosdevelopment/membership">Premium support</a>
+            </div>
+        </div>
+    </nav>   
+    <div class="contract-list">
+        <div class="contract" onclick="redirectTo('eula.html')">
+            <h2>End User License Agreement (EULA)</h2>
+            <p>The present End User License Agreement (EULA) is a legal and binding contract 
+                between you (whether an individual or a legal entity) and the entity owning this software. This agreement establishes the terms and conditions for the use of the software.</p>
+        </div>
+        <div class="contract" onclick="redirectTo('')">
+            <h2>coming soon</h2>
+            <p>coming soon...</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    function redirectTo(url) {
+        window.location.href = url;
+    }
+</script>
+
+</html>
