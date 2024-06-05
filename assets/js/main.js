@@ -261,3 +261,16 @@
   new PureCounter();
 
 })()
+
+function getCountryInitials() {
+  $.getJSON("https://api.ipdata.co?api-key=4b4f7b3c3a250d196026fe0d3cbbd1de8824208ad67c45b2c6ca58fa", function(data) {
+            // Obtener las iniciales del país
+            var countryInitials = data.country_code.toUpperCase();
+            
+            // Agregar las iniciales del país al contenido existente del enlace
+            var currentContent = $('#country-initials').text();
+            $('#country-initials').text(currentContent + ' ' + countryInitials);
+        });
+}
+
+getCountryInitials();

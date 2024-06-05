@@ -33,6 +33,20 @@ h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.small-text {
+  font-size: small;
+}
+
+#hora {
+  font-size: 1.2rem;
+  color: #333;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   transition: width 0.3s ease;
