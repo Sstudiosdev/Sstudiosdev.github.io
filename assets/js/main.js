@@ -274,3 +274,23 @@ function getCountryInitials() {
 }
 
 getCountryInitials();
+
+document.addEventListener('DOMContentLoaded', function() {
+  var typedH1 = new Typed('#typed-h1', {
+    strings: ["SSTUDIOS - Better solutions for your company"],
+    typeSpeed: 50,
+    onComplete: function(self) {
+      self.cursor.remove();
+      setTimeout(function() {
+        var typedH2 = new Typed('#typed-h2', {
+          strings: ["We are a team of amateur developers trying to do things that nobody has done before.", "Check out our projects; you might find something useful!"],
+          typeSpeed: 50,
+          backSpeed: 50,
+          startDelay: 500,
+          loop: true,
+          backDelay: 1000
+        });
+      }, 1000);
+    }
+  });
+});
